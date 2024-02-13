@@ -7,6 +7,7 @@
   text-decoration: none;
   list-style: none;
 }
+
 html {
   background-color: #fbf9f9;
   font-family: "Chenla", system-ui;
@@ -38,9 +39,9 @@ img {
   border-radius: 50%;
 } */
 
-.hamburger {
+/* .hamburger {
   display: none;
-}
+} */
 
 .nav-bar ul {
   display: flex;
@@ -56,20 +57,23 @@ img {
   margin: 0 10px;
   font-family: "Koulen", sans-serif;
 }
+.nav-bar ul li a:hover,a.active {
+  background: lightgray;
+  box-shadow: -4px -4px 10px #b7b6b6, 4px 4px 10px #fff;
+}
+/* edit */
+.checkbtn{
+  font-size: 30px;
+  color: black;
+  float: right;
+  margin: 35px 0;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
 
-.nav-bar ul li a:hover {
-  display: block;
-  color: black;
-  font-size: 17px;
-  padding: 10px 25px;
-  border-radius: 25px;
-  transition: 0.5s;
-  margin: 0 10px;
-}
-.nav-bar ul li a:hover {
-  color: black;
-  background: white;
-}
 /* content */
 
 .content {
@@ -164,7 +168,7 @@ img {
 
 .category .category-box .box-content {
   position: absolute;
-  z-index: 1;
+  /* z-index: 1; */
   margin-left: 30px;
   margin-top: 100px;
 }
@@ -194,7 +198,6 @@ img {
 }
 
 .category .category-box .box-content a:hover {
-  /* background: rgb(255, 237, 237); */
   background: black;
   color: white;
 }
@@ -292,6 +295,13 @@ img {
 }
 .popular-products-items .popular-products-item .popular-products-image img {
   height: 250px;
+  transition: all 0.2s;
+}
+.popular-products-items
+  .popular-products-item
+  .popular-products-image
+  img:hover {
+  transform: scale(1.2);
 }
 .popular-products-items .popular-products-item .popular-products-body {
   margin-top: 15px;
@@ -312,17 +322,6 @@ img {
   label {
   font-size: 15px;
 }
-/* .popular-products-items
-  .popular-products-item
-  .popular-products-body
-  .price
-  label
-  .sale {
-  display: inline-block;
-  margin: 10px;
-  text-decoration: line-through;
-  color: gray;
-} */
 .popular-products-box .popular-products-btn {
   margin-top: 50px;
   text-align: center;
@@ -342,6 +341,7 @@ img {
 .popular-products-box .popular-products-btn button:hover {
   background: #f8dcdc;
   color: black;
+  transform: scale(1.2);
 }
 /* .popular-products-box .popular-products-btn button a i {
   color: white;
@@ -407,7 +407,6 @@ img {
   border-radius: 10px;
   font-size: 23px;
   color: orange;
-
   transition: all 0.4s ease-in-out;
   margin-bottom: 35px;
   background: #fbf9f9;
@@ -423,11 +422,15 @@ img {
   margin-bottom: 10px;
   font-family: "Poppins", sans-serif;
 }
-.our-services-box .our-services-item .our-services-body label {
-  font-size: 15px;
-  font-weight: 300;
+.our-services-box .our-services-item .our-services-icon a {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 70px;
+  display: inline-block;
+  border-radius: 10px;
+  font-size: 23px;
+  color: orange;
+  transition: all 0.4s ease-in-out;
+  background: #fbf9f9;
 }
-
 /* footer */
 .footer {
   padding: 80px 90px;
@@ -503,15 +506,8 @@ img {
 
 /* responsive */
 @media (max-width: 755px) {
-  .nav-bar ul li a {
-    display: block;
-    color: white;
-    font-size: 15px;
-    padding: 10px 25px;
-    border-radius: 25px;
-    transition: 0.5s;
-    margin: 0 10px;
-  }
+  
+  
   .content-box {
     margin-left: 5px;
     padding: 7px;
@@ -553,48 +549,42 @@ img {
     margin-top: 100px;
   }
 }
-@media (max-width: 900px) {
-  .hamburger {
+@media (max-width: 858px) {
+  
+  .checkbtn{
     display: block;
-    cursor: pointer;
   }
-  .hamburger .line {
-    width: 30px;
-    height: 3px;
-    background: white;
-    margin: 6px 0;
-  }
-  .nav-bar {
-    height: 0;
-    position: absolute;
-    top: 110px;
-    right: 0;
-    left: 0;
+  .nav-bar ul{
+    font-weight: bolder;
+    display: block;
+    position: fixed;
     width: 100%;
+    height: 100vh;
     background: linear-gradient(
       to bottom right,
       rgba(0, 0, 0, 0.3),
       rgba(0, 0, 0, 0.3)
     );
-    transition: 0.5s;
-    overflow: hidden;
-  }
-  .nav-bar .active {
-    height: 250px;
-  }
-  .nav-bar ul {
-    display: block;
-    margin: 21px auto 0 auto;
+    top: 80px;
+    left: -1000px;
     text-align: center;
-    transition: 0.5s;
-    opacity: 0;
+    transition: all .5s;
   }
-  .nav-bar .active ul {
-    opacity: 1;
+  .nav-bar ul li{
+    /* display: block; */
+    margin: 40px 0
   }
-  .nav-bar ul li a {
-    margin-bottom: 12px;
+  .nav-bar ul li a{
+    font-size: 20px;
+
   }
+  a:hover, a.active{
+    background:#0082e6;
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
+
 }
 @media (max-width: 660px) {
   .category-title h2 {
