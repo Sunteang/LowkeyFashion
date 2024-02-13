@@ -64,13 +64,6 @@ img {
   width: 180px;
 }
 
-/* .nav-container .logo img {
-  border-radius: 50%;
-} */
-
-.hamburger {
-  display: none;
-}
 
 .nav-bar ul {
   display: flex;
@@ -87,64 +80,20 @@ img {
   font-family: 'Koulen', sans-serif;
 }
 
-.nav-bar ul li a:hover {
-  color: black;
-  background: white;
-  
-}
-/* content */
-
-.content {
-  display: flex;
-  position: relative;
-  align-items: flex-start;
-  justify-content: center;
-  height: 100vh;
-  flex-direction: column;
-  background: url(images/bg-1.JPEG);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.content-box {
-  margin-left: 10%;
-}
-
-.content-box h2 {
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 36px;
-  color: orangered;
-}
-
-.content-box label {
-  display: inline-block;
-  margin-top: 5px;
-  font-size: 22px;
-  font-weight: 300;
-}
-
-.content-box label span {
-  color: orangered;
-}
-
-.content-box a {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px;
-  color: black;
-  letter-spacing: 3px;
-  font-size: 14px;
-  border-radius: 5px;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 4px 4px 10px #b7b6b6, -4px -4px 10px #fff;
-  
-}
-
-.content-box a:hover {
+.nav-bar ul li a:hover, a.active {
+  background: lightgray;
   box-shadow: -4px -4px 10px #b7b6b6, 4px 4px 10px #fff;
+}
+.checkbtn{
+  font-size: 30px;
+  color: black;
+  float: right;
+  margin: 35px 0;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
 }
 
 /* category */
@@ -184,7 +133,7 @@ img {
 
 .category .category-box .box-content {
   position: absolute;
-  z-index: 1;
+  /* z-index: 1; */
   margin-left: 30px;
   margin-top: 100px;
 }
@@ -269,6 +218,10 @@ img {
 }
 .most-rated-items .most-rated-item .most-rated-image img {
   height: 250px;
+  transition: all 0.4s ease-in-out;
+}
+.most-rated-items .most-rated-item .most-rated-image img:hover{
+  transform: scale(1.2);
 }
 .most-rated-items .most-rated-item .most-rated-body {
   margin-top: 15px;
@@ -340,6 +293,10 @@ img {
 }
 .popular-products-items .popular-products-item .popular-products-image img {
   height: 250px;
+  transition: all 0.2s ease-in-out;
+}
+.popular-products-items .popular-products-item .popular-products-image img:hover{
+  transform: scale(1.2);
 }
 .popular-products-items .popular-products-item .popular-products-body {
   margin-top: 15px;
@@ -524,46 +481,7 @@ img {
   color: black;
 }
 /* responsive */
-@media (max-width: 755px) {
-  .nav-bar ul li a {
-    display: block;
-    color: white;
-    font-size: 15px;
-    padding: 10px 25px;
-    border-radius: 25px;
-    transition: 0.5s;
-    margin: 0 10px;
-  }
-  .content-box {
-    margin-left: 5px;
-    padding: 7px;
-  }
-  .content-box h2 {
-    font-weight: 400;
-    font-size: 29px;
-    color: orangered;
-  }
-  .content-box label {
-    display: inline-block;
-    margin-top: 5px;
-    font-size: 18px;
-    font-weight: 300;
-    padding: 5px;
-  }
-  .content-box label span {
-    color: orange;
-  }
-  .content-box a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px;
-    color: black;
-    letter-spacing: 3px;
-    font-size: 12px;
-    border-radius: 5px;
-    transition: all 0.2s ease-in-out;
-  }
-}
+
 @media (max-width: 1200px) {
   .category .category-box .box img {
     width: 530px;
@@ -575,47 +493,40 @@ img {
     margin-top: 100px;
   }
 }
-@media (max-width: 900px) {
-  .hamburger {
+@media (max-width: 858px) {
+  
+  .checkbtn{
     display: block;
-    cursor: pointer;
   }
-  .hamburger .line {
-    width: 30px;
-    height: 3px;
-    background: white;
-    margin: 6px 0;
-  }
-  .nav-bar {
-    height: 0;
-    position: absolute;
-    top: 110px;
-    right: 0;
-    left: 0;
+  .nav-bar ul{
+    font-weight: bolder;
+    display: block;
+    position: fixed;
     width: 100%;
+    height: 100vh;
     background: linear-gradient(
       to bottom right,
       rgba(0, 0, 0, 0.3),
       rgba(0, 0, 0, 0.3)
     );
-    transition: 0.5s;
-    overflow: hidden;
-  }
-  .nav-bar .active {
-    height: 250px;
-  }
-  .nav-bar ul {
-    display: block;
-    margin: 21px auto 0 auto;
+    top: 80px;
+    left: -1000px;
     text-align: center;
-    transition: 0.5s;
-    opacity: 0;
+    transition: all .5s;
   }
-  .nav-bar .active ul {
-    opacity: 1;
+  .nav-bar ul li{
+    /* display: block; */
+    margin: 40px 0
   }
-  .nav-bar ul li a {
-    margin-bottom: 12px;
+  .nav-bar ul li a{
+    font-size: 20px;
+
+  }
+  a:hover, a.active{
+    background:#0082e6;
+  }
+  #check:checked ~ ul {
+    left: 0;
   }
 }
 @media (max-width: 660px) {
@@ -1081,20 +992,20 @@ img {
           <a href="index.html"><img src="images/logo-nopic.PNG" /> </a>
         </div>
 
-        <!-- <div class="hamburger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div> -->
+
 
         <nav class="nav-bar">
+          <input type="checkbox" id="check">
+          <label for="check" class="checkbtn">
+            <i class="fa-solid fa-bars"></i>
+          </label>
           <ul>
-            <li><a href="index.html" class="active">ទំព័រដើម</a></li>
-            <li><a href="men.html" class="men">បុរស</a></li>
-            <li><a href="women.html" class="women">នារី</a></li>
-            <li><a href="shoe.html" class="shoe">ស្បែកជើង</a></li>
-            <li><a href="about.html" class="aboutus">អំពីពួកយើង</a></li>
-            <li><a href="login.html" class="#acc"><i class="fa-solid fa-user"></i></a></li>
+            <li><a href="index.html" class="#">ទំព័រដើម</a></li>
+            <li><a href="men.html" class="#">បុរស</a></li>
+            <li><a href="women.html" class="active">នារី</a></li>
+            <li><a href="shoe.html" class="#">ស្បែកជើង</a></li>
+            <li><a href="about.html" class="#">អំពីពួកយើង</a></li>
+            <li><a href="login.html" class="#"><i class="fa-solid fa-user"></i></a></li>
           </ul>
         </nav>
       </div>
@@ -1111,7 +1022,7 @@ img {
 
     <div class="category" id="category">
       <div class="category-title">
-        <h2 id="home">Lowkey styles </h2>
+        <h2 id="home">Women's Clothes</h2>
       </div>
       <div class="category-box">
         <div class="box woman-box">
@@ -1167,7 +1078,7 @@ img {
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
               </div>
               <div class="price">
                 <label class="sale">$39.99</label>
@@ -1186,7 +1097,7 @@ img {
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
               </div>
               <div class="price">
                 <label class="sale">$35.99</label>
@@ -1201,8 +1112,6 @@ img {
             <div class="most-rated-body">
               <h4>Sweat Shirt</h4>
               <div class="icons">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -1242,8 +1151,7 @@ img {
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
               </div>
               <div class="price">
                 <label class="sale">$25.99</label>
@@ -1295,8 +1203,7 @@ img {
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
               </div>
               <div class="price">
                 <label>$19.99</label>
@@ -1310,7 +1217,6 @@ img {
             <div class="popular-products-body">
               <h4>Jean</h4>
               <div class="icons">
-                <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -1332,7 +1238,6 @@ img {
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
               </div>
               <div class="price">
                 <label>$14.99</label>
@@ -1346,7 +1251,6 @@ img {
             <div class="popular-products-body">
               <h4>Skirt</h4>
               <div class="icons">
-                <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -1368,7 +1272,7 @@ img {
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
               </div>
               <div class="price">
                 <label>$14.99</label>
@@ -1418,7 +1322,7 @@ img {
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
               </div>
               <div class="price">
                 <label class="sale"><small>$48.99</small> <mark>$39.99</mark></label>
@@ -1436,7 +1340,7 @@ img {
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
               </div>
               <div class="price">
                 <label class="sale"><small>$35.99</small> <mark>$25.99</mark></label>
@@ -1450,7 +1354,6 @@ img {
             <div class="most-rated-body">
               <h4>Woman Jean</h4>
               <div class="icons">
-                <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -1471,8 +1374,7 @@ img {
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
               </div>
               <div class="price">
                 <label class="sale"><small>$9.99</small> <mark>$6.99</mark></label>
@@ -1489,8 +1391,7 @@ img {
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
               </div>
               <div class="price">
                 <label class="sale"><small>$9.99</small> <mark>$6.99</mark></label>
